@@ -1073,7 +1073,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                     }
                     else if (vFormat == 'hour')
                     {
-                        vTaskRight = (Date.parse(vTaskList[i].getEnd()) - Date.parse(vTaskList[i].getStart())) / (60 * 60 * 1000) + 1 / vColUnit;
+                        vTaskRight = (Date.parse(vTaskList[i].getEnd()) - Date.parse(vTaskList[i].getStart())) / (60 * 60 * 1000)  / vColUnit;
                         vTaskLeft = (Date.parse(vTaskList[i].getStart()) - Date.parse(vMinDate)) / (60 * 60 * 1000);
                     }
                     else
@@ -1084,8 +1084,8 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                         {
                             var tTime = new Date();
                             tTime.setTime(Date.parse(vTaskList[i].getStart()));
-                            if (tTime.getMinutes() > 29)
-                                vTaskLeft += .5
+                            //if (tTime.getHours() > 12)
+                            //    vTaskLeft += .5
                         }
                     }
 
