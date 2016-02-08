@@ -143,6 +143,9 @@ JSGantt.TaskItem = function(pID, pName, pStart, pEnd, pColor, pLink, pMile, pRes
 			tmpPer = this.getDuracion();
             if (tmpPer == 1)
                 vDuration = '1 Hora';
+			else if(tmpPer<1){
+				vDuration = '0'+ tmpPer+' horas';
+			}
             else
                 vDuration = tmpPer + ' Horas';
         }
@@ -161,6 +164,9 @@ JSGantt.TaskItem = function(pID, pName, pStart, pEnd, pColor, pLink, pMile, pRes
 			tmpPer = this.getDuracion();
             if (tmpPer == 1)
                 vDuration = '1 Hora';
+			else if(tmpPer<1){
+				vDuration = '0'+ tmpPer+' horas';
+			}
             else
                 vDuration = tmpPer + ' horas';
         }
