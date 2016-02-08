@@ -260,7 +260,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
     var vShowComp = 1;
     var vShowStartDate = 1;
     var vShowEndDate = 1;
-    var vDateInputFormat = "mm/dd/yyyy";
+    var vDateInputFormat = "dd/mm/yyyy";
     var vDateDisplayFormat = "dd/mm/yyyy HH:mm";
     var vNumUnits = 0;
     var vCaptionType;
@@ -822,7 +822,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                 {
 
                     if (vTmpDate.getMinutes() == 0)
-                        vWeekdayColor = "9E9E9E";
+                        vWeekdayColor = "f8f8f8";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -836,7 +836,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                 {
 
                     if (vTmpDate.getHours() == 0)
-                        vWeekdayColor = "9E9E9E";
+                        vWeekdayColor = "f8f8f8";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -848,8 +848,8 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
 
                 else if (vFormat == 'day')
                 {
-                    if (JSGantt.formatDateStr(vCurrDate, 'mm/dd/yyyy') == JSGantt.formatDateStr(vTmpDate, 'mm/dd/yyyy')) {
-                        vWeekdayColor = "9E9E9E";
+                    if (JSGantt.formatDateStr(vCurrDate, 'dd/mm/yyyy') == JSGantt.formatDateStr(vTmpDate, 'dd/mm/yyyy')) {
+                        vWeekdayColor = "f8f8f8";
                         vWeekendColor = "B6B6B6";
                         vWeekdayGColor = "bbbbff";
                         vWeekendGColor = "8888ff";
@@ -866,7 +866,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                     }
                     else {
                         vDateRowStr += '<td class="ghead" style="BORDER-TOP: #efefef 1px solid; FONT-SIZE: 12px; HEIGHT: 20px; BORDER-LEFT: #efefef 1px solid;"  bgcolor=#' + vWeekdayColor + ' align=center><div style="width: ' + vColWidth + 'px">' + vTmpDate.getDate() + '</div></td>';
-                        if (JSGantt.formatDateStr(vCurrDate, 'mm/dd/yyyy') == JSGantt.formatDateStr(vTmpDate, 'mm/dd/yyyy'))
+                        if (JSGantt.formatDateStr(vCurrDate, 'dd/mm/yyyy') == JSGantt.formatDateStr(vTmpDate, 'dd/mm/yyyy'))
                             vItemRowStr += '<td class="ghead" style="BORDER-TOP: #efefef 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #efefef 1px solid; cursor: default;"  bgcolor=#' + vWeekdayColor + ' align=center><div style="width: ' + vColWidth + 'px">&nbsp&nbsp</div></td>';
                         else
                             vItemRowStr += '<td class="ghead" style="BORDER-TOP: #efefef 1px solid; FONT-SIZE: 12px; BORDER-LEFT: #efefef 1px solid; cursor: default;"  align=center><div style="width: ' + vColWidth + 'px">&nbsp&nbsp</div></td>';
@@ -882,7 +882,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                     vNxtDate.setDate(vNxtDate.getDate() + 7);
 
                     if (vCurrDate >= vTmpDate && vCurrDate < vNxtDate)
-                        vWeekdayColor = "9E9E9E";
+                        vWeekdayColor = "f8f8f8";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -911,7 +911,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
 
                     vNxtDate.setFullYear(vTmpDate.getFullYear(), vTmpDate.getMonth(), vMonthDaysArr[vTmpDate.getMonth()]);
                     if (vCurrDate >= vTmpDate && vCurrDate < vNxtDate)
-                        vWeekdayColor = "9E9E9E";
+                        vWeekdayColor = "f8f8f8";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -951,7 +951,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                         vNxtDate.setFullYear(vTmpDate.getFullYear(), 11, 31);
 
                     if (vCurrDate >= vTmpDate && vCurrDate < vNxtDate)
-                        vWeekdayColor = "9E9E9E";
+                        vWeekdayColor = "f8f8f8";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -1980,3 +1980,5 @@ JSGantt.benchMark = function(pItem) {
     alert(pItem + ': Elapsed time: ' + ((vEndTime - vBenchTime) / 1000) + ' seconds.');
     vBenchTime = new Date().getTime();
 };
+
+
