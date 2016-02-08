@@ -822,7 +822,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                 {
 
                     if (vTmpDate.getMinutes() == 0)
-                        vWeekdayColor = "f8f8f8";
+                        vWeekdayColor = "ffffff";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -836,7 +836,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                 {
 
                     if (vTmpDate.getHours() == 0)
-                        vWeekdayColor = "f8f8f8";
+                        vWeekdayColor = "ffffff";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -849,7 +849,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                 else if (vFormat == 'day')
                 {
                     if (JSGantt.formatDateStr(vCurrDate, 'dd/mm/yyyy') == JSGantt.formatDateStr(vTmpDate, 'dd/mm/yyyy')) {
-                        vWeekdayColor = "f8f8f8";
+                        vWeekdayColor = "ffffff";
                         vWeekendColor = "B6B6B6";
                         vWeekdayGColor = "bbbbff";
                         vWeekendGColor = "8888ff";
@@ -882,7 +882,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                     vNxtDate.setDate(vNxtDate.getDate() + 7);
 
                     if (vCurrDate >= vTmpDate && vCurrDate < vNxtDate)
-                        vWeekdayColor = "f8f8f8";
+                        vWeekdayColor = "ffffff";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -911,7 +911,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
 
                     vNxtDate.setFullYear(vTmpDate.getFullYear(), vTmpDate.getMonth(), vMonthDaysArr[vTmpDate.getMonth()]);
                     if (vCurrDate >= vTmpDate && vCurrDate < vNxtDate)
-                        vWeekdayColor = "f8f8f8";
+                        vWeekdayColor = "ffffff";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -951,7 +951,7 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                         vNxtDate.setFullYear(vTmpDate.getFullYear(), 11, 31);
 
                     if (vCurrDate >= vTmpDate && vCurrDate < vNxtDate)
-                        vWeekdayColor = "f8f8f8";
+                        vWeekdayColor = "ffffff";
                     else
                         vWeekdayColor = "ffffff";
 
@@ -1079,13 +1079,16 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                     else
                     {
                         vTaskRight = (Date.parse(vTaskList[i].getEnd()) - Date.parse(vTaskList[i].getStart())) / (24 * 60 * 60 * 1000) + 1 / vColUnit;
-                        vTaskLeft = (Date.parse(vTaskList[i].getStart()) - Date.parse(vMinDate)) / (24 * 60 * 60 * 1000);
+                        //vTaskLeft = (Date.parse(vTaskList[i].getStart()) - Date.parse(vMinDate)) / (24 * 60 * 60 * 1000);
+						tFecha = new Date();
+						tFecha.setFullYear((vTaskList[i].getStart()).getFullYear(), (vTaskList[i].getStart()).getMonth(), (vTaskList[i].getStart()).getDate());
+						vTaskLeft = (Date.parse(tFecha) - Date.parse(vMinDate)) / (24 * 60 * 60 * 1000);
                         if (vFormat = 'day')
                         {
                             var tTime = new Date();
                             tTime.setTime(Date.parse(vTaskList[i].getStart()));
-                            if (tTime.getHours() > 12)
-                                vTaskLeft += .5
+                            //if (tTime.getHours() > 12)
+                            //    vTaskLeft += .5
                         }
                     }
 
