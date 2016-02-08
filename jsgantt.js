@@ -1079,13 +1079,13 @@ JSGantt.GanttChart = function(pGanttVar, pDiv, pFormat)
                     else
                     {
                         vTaskRight = (Date.parse(vTaskList[i].getEnd()) - Date.parse(vTaskList[i].getStart())) / (24 * 60 * 60 * 1000) + 1 / vColUnit;
-                        vTaskLeft = Math.ceil((Date.parse(vTaskList[i].getStart()) - Date.parse(vMinDate)) / (24 * 60 * 60 * 1000));
+                        vTaskLeft = (Date.parse(vTaskList[i].getStart()) - Date.parse(vMinDate)) / (24 * 60 * 60 * 1000);
                         if (vFormat = 'day')
                         {
                             var tTime = new Date();
                             tTime.setTime(Date.parse(vTaskList[i].getStart()));
-                            //if (tTime.getHours() > 12)
-                            //    vTaskLeft += .5
+                            if (tTime.getHours() > 12)
+                                vTaskLeft += .5
                         }
                     }
 
